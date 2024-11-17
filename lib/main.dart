@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zadanie_rekrutacyjne/screens/gallery_screen.dart' ;
+import 'package:zadanie_rekrutacyjne/screens/Gallery/gallery_screen.dart' ;
 
 void main() {
   runApp(const MyApp());
