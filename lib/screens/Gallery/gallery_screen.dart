@@ -1,11 +1,10 @@
-// gallery_screen.dart
 import 'package:flutter/material.dart';
 import 'package:zadanie_rekrutacyjne/shared/components/custom_bottom_navbar.dart';
 import 'package:zadanie_rekrutacyjne/shared/components/gallery_app_bar.dart';
 import 'gallery_grid.dart';
 
 class GalleryScreen extends StatefulWidget {
-  const GalleryScreen({super.key});
+  const GalleryScreen({Key? key}) : super(key: key);
 
   @override
   _GalleryScreenState createState() => _GalleryScreenState();
@@ -13,26 +12,7 @@ class GalleryScreen extends StatefulWidget {
 
 class _GalleryScreenState extends State<GalleryScreen> {
   final ScrollController _scrollController = ScrollController();
-  bool _isAppBarExpanded = true;
   int _selectedIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _scrollController.addListener(() {
-      double threshold = MediaQuery.of(context).size.height * 0.3;
-      if (_scrollController.offset > threshold && _isAppBarExpanded) {
-        setState(() {
-          _isAppBarExpanded = false;
-        });
-      } else if (_scrollController.offset <= threshold && !_isAppBarExpanded) {
-        setState(() {
-          _isAppBarExpanded = true;
-        });
-      }
-    });
-  }
 
   @override
   void dispose() {
@@ -53,7 +33,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
       body: CustomScrollView(
         controller: _scrollController,
         slivers: [
-          GalleryAppBar(isExpanded: _isAppBarExpanded),
+          GalleryAppBar(scrollController: _scrollController),
           // Napis "Polecane"
           const SliverToBoxAdapter(
             child: Padding(
@@ -77,12 +57,22 @@ class _GalleryScreenState extends State<GalleryScreen> {
               child: Row(
                 children: [
                   ElevatedButton(
+                    
                     onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 185, 142, 236),
+                      foregroundColor: Colors.white,
+                    ),
                     child: const Text('Płatne'),
                   ),
                   const SizedBox(width: 8),
                   ElevatedButton(
+
                     onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.grey[850],
+                    ),
                     child: const Text('Bezpłatnie'),
                   ),
                 ],

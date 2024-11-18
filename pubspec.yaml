@@ -64,6 +64,17 @@ flutter:
   assets:
     - lib/assets/movies/film.mp4
     - lib/assets/images/logo_white.png
+    - lib/assets/images/logo_slaskie.png
+    - lib/assets/images/image_0.jpeg
+    - lib/assets/images/image_1.jpeg
+    - lib/assets/images/image_2.jpeg
+    - lib/assets/images/image_3.jpeg
+    - lib/assets/images/image_4.jpeg
+    - lib/assets/images/image_5.jpeg
+    - lib/assets/images/image_6.jpeg
+    - lib/assets/images/image_7.jpeg
+
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

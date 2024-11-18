@@ -1,10 +1,10 @@
-// grid_item.dart
 import 'package:flutter/material.dart';
 
 class GridItem extends StatelessWidget {
   final int index;
+  final String title; // Dodane pole dla tekstu
 
-  const GridItem({super.key, required this.index});
+  const GridItem({super.key, required this.index, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class GridItem extends StatelessWidget {
           width: double.infinity,
           height: double.infinity,
           child: Image.asset(
-            'lib/assets/images/image_$index.jpg',
+            'lib/assets/images/image_$index.jpeg',
             fit: BoxFit.cover,
           ),
         ),
@@ -32,7 +32,9 @@ class GridItem extends StatelessWidget {
             ),
             child: IconButton(
               icon: const Icon(Icons.favorite_border),
-              iconSize: 16,
+              iconSize: 20, // Dopasuj rozmiar ikony do proporcji
+              padding: EdgeInsets.zero, // Usunięcie domyślnego wypełnienia
+              alignment: Alignment.center, // Wyrównanie ikony w środku
               onPressed: () {},
             ),
           ),
@@ -46,7 +48,7 @@ class GridItem extends StatelessWidget {
             color: Colors.black.withOpacity(0.5),
             padding: const EdgeInsets.all(4.0),
             child: Text(
-              'Tytuł $index',
+              title, // Wyświetlanie tekstu
               style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
